@@ -1,11 +1,24 @@
 #header_tel{
     font-size: 22px;
-     position:absolute;
-      left:-20px
+    position:absolute;
+    left:-20px
+}
+
+#phoneNumber:hover{
+    color:#4BBF73;
 }
 
 #header_reservButton_car{
     margin-right:13px;
+}
+
+#header_logo:hover{
+    color: aqua;
+}
+
+#header_logo img{
+    max-width: 45%;
+	height: auto;
 }
 
 .nav-item.active{

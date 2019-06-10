@@ -16,4 +16,14 @@ class MainController extends AbstractController
             'controller_name' => 'MainController',
         ]);
     }
+
+    /**
+     * @Route("/reservation", name="reservation")
+     */
+    public function reservation()
+    {
+        return $this->render('main/reservation.html.twig', [
+            'controller_name' => 'MainController',
+        ]);
+    }
 }
