@@ -23,8 +23,8 @@
                     <li class="nav-item {% if app.request.attributes.get('_route') == 'index' %}active{% endif %}">
                         <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Prestations</a>
+                    <li class="nav-item {% if app.request.attributes.get('_route') == 'prestations' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('prestations') }}">Prestations</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Tarifs</a>
@@ -33,15 +33,21 @@
                         <a class="nav-link" href="{{ path('reservation') }}">Réservation</a>
                     </li>
                 </ul>
-                
-                <div class="col-md-3">
+
+                <div id="header_trajets_div" class="col-md-auto">
+                    <span id="header_map" class="fas fa-map-marked-alt"></span>
+                    <h6 style="color:#F0F3F4">Trajets</h6>
+                    <p>Montpellier</p>
+			    </div>
+
+                <div class="col-md-2">
                     <span id="header_tel" class="fas fa-phone"></span>
                     <h6 style="color:#F0F3F4">Télephone</h6>
                     <p id="phoneNumber" class="text-hero-desc">06.55.11.22.33</p>
 			    </div>
                 
                 <form class="form-inline my-2 my-lg-0">
-                    <button type="button" class="btn btn-success"><i id="header_reservButton_car" class="fas fa-car fa-lg"></i> Réserver maintenant</button>
+                    <a href="{{ path('reservation') }}"><button type="button" class="btn btn-success"><i id="header_reservButton_car" class="fas fa-car fa-lg"></i> Devis en ligne</button></a>
                 </form>
             </div>
         </nav>

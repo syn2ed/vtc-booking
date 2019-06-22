@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Form\DevisCourseType;
+
 class MainController extends AbstractController
 {
     /**
@@ -22,8 +24,19 @@ class MainController extends AbstractController
      */
     public function reservation()
     {
+        $form = $this->createForm(DevisCourseType::class);
+
         return $this->render('main/reservation.html.twig', [
-            'controller_name' => 'MainController',
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/prestations", name="prestations")
+     */
+    public function prestations()
+    {
+        return $this->render('main/prestations.html.twig', [
         ]);
     }
 }

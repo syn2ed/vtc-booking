@@ -4,6 +4,17 @@
     left:-20px
 }
 
+#header_map{
+    font-size: 22px;
+    position:absolute;
+    left:-20px
+}
+
+#header_trajets_div{
+    width: 10%;
+    margin-right: 90px;
+}
+
 #phoneNumber:hover{
     color:#4BBF73;
 }
@@ -42,6 +53,13 @@
     top: 50%;
   }
 
-  .carousel-caption h1{
+.carousel-caption h1{
     color: #FDFEFE;
-  }
+ }
+
+#prestations_508div{
+    -webkit-filter: brightness(50%);
+    padding-bottom: 15%;
+    background-size: cover;
+    overflow: hidden;
+}
