@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>TELETRANS: {% block title %}Welcome!{% endblock %}</title>
         <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <script src="https://kit.fontawesome.com/bd1864252d.js"></script><!-- FontAwesome pour les icones -->
@@ -26,9 +26,6 @@
                     <li class="nav-item {% if app.request.attributes.get('_route') == 'prestations' %}active{% endif %}">
                         <a class="nav-link" href="{{ path('prestations') }}">Prestations</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Tarifs</a>
-                    </li>
                     <li class="nav-item {% if app.request.attributes.get('_route') == 'reservation' %}active{% endif %}">
                         <a class="nav-link" href="{{ path('reservation') }}">Réservation</a>
                     </li>
@@ -37,7 +34,7 @@
                 <div id="header_trajets_div" class="col-md-auto">
                     <span id="header_map" class="fas fa-map-marked-alt"></span>
                     <h6 style="color:#F0F3F4">Trajets</h6>
-                    <p>Montpellier</p>
+                    <p>PERIPHERIE MONTPELLIER</p>
 			    </div>
 
                 <div class="col-md-2">
@@ -47,7 +44,7 @@
 			    </div>
                 
                 <form class="form-inline my-2 my-lg-0">
-                    <a href="{{ path('reservation') }}"><button type="button" class="btn btn-success"><i id="header_reservButton_car" class="fas fa-car fa-lg"></i> Devis en ligne</button></a>
+                    <a href="{{ path('reservation') }}"><button type="button" class="btn btn-success"><i id="header_reservButton_car" class="fas fa-car fa-lg"></i> Devis gratuit !</button></a>
                 </form>
             </div>
         </nav>
