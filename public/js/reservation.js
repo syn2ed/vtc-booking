@@ -80,7 +80,7 @@
   /* Affichage de la distance résultante*/
   function displayDistance(distanceInM, time){
     distanceInKm = distanceInM / 1000;
-    var price = distanceInKm * 1.5;
+    var price = distanceInKm * 1.5; // 2,5
     
     document.getElementById("estimationResult").classList.remove("d-none");
 
