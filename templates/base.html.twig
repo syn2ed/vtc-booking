@@ -26,9 +26,6 @@
                     <li class="nav-item {% if app.request.attributes.get('_route') == 'prestations' %}active{% endif %}">
                         <a class="nav-link" href="{{ path('prestations') }}">Prestations</a>
                     </li>
-                    <li class="nav-item {% if app.request.attributes.get('_route') == 'reservation' %}active{% endif %}">
-                        <a class="nav-link" href="{{ path('reservation') }}">Réservation</a>
-                    </li>
                     <li class="form-inline my-2 my-lg-0">
                         <a href="{{ path('reservation') }}"><button type="button" class="btn btn-success"><i id="header_reservButton_car" class="fas fa-car fa-lg"></i> Devis gratuit !</button></a>
                     </li>
@@ -40,21 +37,33 @@
                     <p>PERIPHERIE MONTPELLIER</p>
 			    </div>
 
-                {#
                 <div class="col-md-2">
                     <span id="header_tel" class="fas fa-phone"></span>
                     <h6 style="color:#F0F3F4">Télephone</h6>
                     <p id="phoneNumber" class="text-hero-desc">06.55.11.22.33</p>
 			    </div>
-                #}
+
                 {% if not app.user %}
                 <li class="form-inline my-2 my-lg-0">
                     <a href="{{ path('security_login') }}"><button type="button" class="btn btn-outline-light"><i class="fas fa-sign-in-alt"></i> Connexion</button></a>
                 </li>
                 {% else %}
-                <li class="form-inline my-2 my-lg-0">
-                    <a href="{{ path('security_logout') }}"><button type="button" class="btn btn-light"><i class="fas fa-sign-in-alt"></i> Deconnexion</button></a>
-                </li>
+                    <div class="dropdown show">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mon compte
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#">Mes reservations</a>
+                            <a class="dropdown-item" href="#">Mes informations</a>
+                            <a class="dropdown-item" href="{{ path('security_logout') }}"><span style="color: red; ">Deconnexion</span></a>
+                        </div>
+                    </div>
+                    {#
+                    <li class="form-inline my-2 my-lg-0">
+                        <a href="{{ path('security_logout') }}"><button type="button" class="btn btn-light"><i class="fas fa-sign-in-alt"></i> Deconnexion</button></a>
+                    </li>
+                    #}
                 {% endif %}
             </div>
         </nav>
