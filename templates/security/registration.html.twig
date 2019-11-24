@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Inscription</h1>
+    {{ form_start(form) }}
+
+    {{ form_row(form.email, {'label': 'Adresse e-mail', 'attr': {'placeholder':'exemple@outlook.fr'}}) }}
+    {{ form_row(form.password, {'label': 'Mot de passe', 'attr': {'placeholder': 'Minimum 8 caractères'}}) }}
+    {{ form_row(form.passwordConfirm, {'label': 'Confirmation du mot de passe'}) }}
+    <button type="submit" class="btn btn-success">Valider</button>
+    {{ form_end(form) }}
+{% endblock %}
