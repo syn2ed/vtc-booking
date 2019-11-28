@@ -115,3 +115,12 @@
 #champsReservationSupp{
     margin-top: 15px;
 }
+
+
+/* Page connexion */
+#div_connexion{
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    background-color: #d0d3d4;
+}
