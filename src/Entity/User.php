@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -41,6 +43,28 @@ class User implements UserInterface
      * @Assert\EqualTo(propertyPath="password", message="Votre mot de passe et sa confirmation ne se correspondent pas")
      */
     public $passwordConfirm;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="validator")
+     */
+    private $validatedBookings;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="driver")
+     */
+    private $travelsConducted;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="customer")
+     */
+    private $bookings;
+
+    public function __construct()
+    {
+        $this->validatedBookings = new ArrayCollection();
+        $this->travelsConducted = new ArrayCollection();
+        $this->bookings = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -121,5 +145,98 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.
+    }
+
+    /**
+     * @return Collection|Booking[]
+     */
+    public function getValidatedBookings(): Collection
+    {
+        return $this->validatedBookings;
+    }
+
+    public function addValidatedBooking(Booking $validatedBooking): self
+    {
+        if (!$this->validatedBookings->contains($validatedBooking)) {
+            $this->validatedBookings[] = $validatedBooking;
+            $validatedBooking->setValidator($this);
+        }
+
+        return $this;
+    }
+
+    public function removeValidatedBooking(Booking $validatedBooking): self
+    {
+        if ($this->validatedBookings->contains($validatedBooking)) {
+            $this->validatedBookings->removeElement($validatedBooking);
+            // set the owning side to null (unless already changed)
+            if ($validatedBooking->getValidator() === $this) {
+                $validatedBooking->setValidator(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Booking[]
+     */
+    public function getTravelsConducted(): Collection
+    {
+        return $this->travelsConducted;
+    }
+
+    public function addTravelsConducted(Booking $travelsConducted): self
+    {
+        if (!$this->travelsConducted->contains($travelsConducted)) {
+            $this->travelsConducted[] = $travelsConducted;
+            $travelsConducted->setDriver($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTravelsConducted(Booking $travelsConducted): self
+    {
+        if ($this->travelsConducted->contains($travelsConducted)) {
+            $this->travelsConducted->removeElement($travelsConducted);
+            // set the owning side to null (unless already changed)
+            if ($travelsConducted->getDriver() === $this) {
+                $travelsConducted->setDriver(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Booking[]
+     */
+    public function getBookings(): Collection
+    {
+        return $this->bookings;
+    }
+
+    public function addBooking(Booking $booking): self
+    {
+        if (!$this->bookings->contains($booking)) {
+            $this->bookings[] = $booking;
+            $booking->setCustomer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBooking(Booking $booking): self
+    {
+        if ($this->bookings->contains($booking)) {
+            $this->bookings->removeElement($booking);
+            // set the owning side to null (unless already changed)
+            if ($booking->getCustomer() === $this) {
+                $booking->setCustomer(null);
+            }
+        }
+
+        return $this;
     }
 }

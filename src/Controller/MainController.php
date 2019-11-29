@@ -30,11 +30,7 @@ class MainController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $message = (new \Swift_Message('Hello Email'))
-            ->setFrom('ayoub.laarobi@gmail.com')
-            ->setTo('ayoub-syn@live.fr')        ;
-
-            $mailer->send($message);
+            dump($form->getData());die;
 
             return $this->render('main/reservation.html.twig', [
                 'form' => $form->createView(),
