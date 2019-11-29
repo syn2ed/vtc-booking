@@ -35,6 +35,8 @@ class SecurityController extends AbstractController
             $manager->persist($user);
             $manager->flush($user);
 
+            $this->addFlash('success', "Bienvenue sur la plateforme de réservation VTC TELETRANS Montpellier ! Veuillez vous connecter avec vos identifiants ");
+
             return $this->redirectToRoute('security_login');
         }
 
@@ -47,7 +49,7 @@ class SecurityController extends AbstractController
      * @Route("/connexion", name="security_login")
      * @return Response
      */
-    public function login(){
+    public function login(Request $request){
         return $this->render('security/login.html.twig', [
         ]);
     }

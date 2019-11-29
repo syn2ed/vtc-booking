@@ -1,6 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {% for label, flashes in app.session.flashbag.all %}
+        {% for flash in flashes %}
+            {% if ( label == 'success' ) %}
+                <div class="alert alert-dismissible alert-success">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <h4 class="alert-heading">Inscription validée!</h4>
+                    <p class="mb-0">{{ flash }}</p>
+                </div>
+                {#
+            {% elseif ( label == 'error' ) %}
+                <div class="alert alert-dismissible alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <h4 class="alert-heading">Warning!</h4>
+                    <p class="mb-0">{{ flash }}</p>
+                </div>
+                #}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+
     <div id="div_connexion" class="card panel-default">
         <div class="card-body">
             <div class="tab-content">
@@ -15,10 +35,12 @@
 
                     <form action="{{ path('security_login') }}" method="post">
                         <div class="form-group">
+                            <label for="registration_email" class="required">Adresse e-mail</label>
                             <input placeholder="exemple@live.fr" required name="_username" type="text"
                                    class="form-control">
                         </div>
                         <div class="form-group">
+                            <label for="registration_email" class="required">Mot de passe</label>
                             <input placeholder="Mot de passe" required name="_password" type="password"
                                    class="form-control">
                         </div>

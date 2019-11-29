@@ -1,12 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Inscription</h1>
-    {{ form_start(form) }}
+    <div id="div_connexion" class="card panel-default">
+        <div class="card-body">
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <h3 class="text-center">Inscription</h3>
 
-    {{ form_row(form.email, {'label': 'Adresse e-mail', 'attr': {'placeholder':'exemple@outlook.fr'}}) }}
-    {{ form_row(form.password, {'label': 'Mot de passe', 'attr': {'placeholder': 'Minimum 8 caractères'}}) }}
-    {{ form_row(form.passwordConfirm, {'label': 'Confirmation du mot de passe'}) }}
-    <button type="submit" class="btn btn-success">Valider</button>
-    {{ form_end(form) }}
+                    <p class="text-center">
+                        <br>
+                        Merci d'utiliser le formulaire suivant pour vous inscrire.
+                        <br>
+                    </p>
+
+                    {{ form_start(form) }}
+
+                    {{ form_row(form.email, {'label': 'Adresse e-mail', 'attr': {'placeholder':'exemple@outlook.fr'}}) }}
+                    {{ form_row(form.password, {'label': 'Mot de passe', 'attr': {'placeholder': 'Minimum 8 caractères'}}) }}
+                    {{ form_row(form.passwordConfirm, {'label': 'Confirmation du mot de passe'}) }}
+                    <div class="form-group">
+                        <button class="btn btn-block btn-primary">VALIDER</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+            <ul class="toggler text-center small list-unstyled" role="tablist">
+                <li role="presentation">Vous disposez déjà d'un compte ? <a href="{{ path('security_login') }}">Se connecter</a></li>
+            </ul>
+        </div>
+    </div>
 {% endblock %}
