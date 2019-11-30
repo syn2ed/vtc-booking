@@ -79,8 +79,8 @@
             "require": "4.4.*"
         },
         "paas": {
-            "document-root": "/public",
-            "index-document": "index.php",
+            "document-root": "/var/www/project/public",
+            "index-document": "/index.php",
             "engines": {
                 "nginx": "default"
             }
