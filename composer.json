@@ -77,6 +77,13 @@
         "symfony": {
             "allow-contrib": false,
             "require": "4.4.*"
+        },
+        "paas": {
+            "document-root": "",
+            "index-document": "public/index.php",
+            "engines": {
+                "nginx": "default"
+            }
         }
     }
 }
