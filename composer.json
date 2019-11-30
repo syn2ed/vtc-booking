@@ -78,12 +78,5 @@
             "allow-contrib": false,
             "require": "4.4.*"
         },
-        "paas": {
-            "document-root": "/var/www/project/public",
-            "index-document": "/index.php",
-            "engines": {
-                "nginx": "default"
-            }
-        }
     }
 }
