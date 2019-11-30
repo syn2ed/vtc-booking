@@ -6564,5 +6564,14 @@
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "extra": {
+        "paas": {
+            "document-root": "",
+            "index-document": "public/index.php",
+            "engines": {
+                "nginx": "default"
+            }
+        }
+    }
 }
