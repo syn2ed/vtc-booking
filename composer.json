@@ -80,6 +80,7 @@
         },
         "paas": {
             "document-root": "/public",
+            "index-document": "index.php",
             "engines": {
                 "nginx": "default"
             }
