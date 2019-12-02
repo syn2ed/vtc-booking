@@ -4,6 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+    "description": "Teletrans VTC",
+    "name": "Teletrans Name",
+    "homepage": "https://teletrans.osc-fr1.scalingo.io/",
+    "license": "MIT",
+    "config": {
+        "platform": {
+            "php": "7.1.3"
+        }
+    },
     "content-hash": "251fbfd3746575d81d3f000db3017c22",
     "packages": [
         {
