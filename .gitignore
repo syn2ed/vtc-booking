@@ -20,3 +20,5 @@
 /.idea
 .env
 .env.test
+/config/bootstrap.php
+
