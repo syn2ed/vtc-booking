@@ -40,11 +40,11 @@
 	height: auto;
 }
 
-.nav-item.active{
+.mainNav.active{
     border-bottom: 2px solid #4BBF73;
 }
 
-.nav-item:hover{
+.mainNav:hover{
     border-bottom: 2px solid #4BBF73;
 }
 
@@ -67,30 +67,36 @@
 
 /* Page prestations */
 #prestations_508div{
-    -webkit-filter: brightness(80%);
-    padding-bottom: 15%;
+    background-image: url("/img/508.jpg");
     background-size: cover;
-    overflow: hidden;
+    -webkit-filter: brightness(50%);
+    padding-bottom: 15%;
 }
 
-
 .transparentCadre{
-    margin: 50px 250px 0px 250px;
+    margin:auto;
     padding: 20px 20px 20px 20px;
+    /*
     background-color: rgba(255,255,255,0.8);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    */
 }
 
 /* page Reservation */
 
 #reservationFormDiv{
+    opacity: 0.5;
     width: 350px;
 }
 
 #reservationRow{
+    display: inline-block;
+    /*
+    height: 500px;
+    background-image: url("https://locationsmeubleesmontpellier.files.wordpress.com/2016/09/architectural-style-in-montpellier_ultra-hd2.jpg");
+    background-size: cover;
     display: flex;
     justify-content: space-around;
-    border: 3px solid black;
 }
 
 #map{
@@ -124,4 +130,12 @@
     margin-right: auto;
     margin-top: 50px;
     width: 30%;
+}
+
+/* Customer Area */
+.customerArea-container{
+    margin-top: 15px;
+    border: 2px solid #f1f1f1;
+    border-radius: 2px;
+    padding: 25px;
 }

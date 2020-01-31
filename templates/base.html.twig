@@ -20,10 +20,10 @@
 
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item {% if app.request.attributes.get('_route') == 'index' %}active{% endif %}">
+                    <li class="mainNav nav-item {% if app.request.attributes.get('_route') == 'index' %}active{% endif %}">
                         <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item {% if app.request.attributes.get('_route') == 'prestations' %}active{% endif %}">
+                    <li class="mainNav nav-item {% if app.request.attributes.get('_route') == 'prestations' %}active{% endif %}">
                         <a class="nav-link" href="{{ path('prestations') }}">Prestations</a>
                     </li>
                     <li class="form-inline my-2 my-lg-0">
@@ -31,6 +31,7 @@
                     </li>
                 </ul>
 
+                {#
                 <div id="header_trajets_div" class="col-md-auto">
                     <span id="header_map" class="fas fa-map-marked-alt"></span>
                     <h6 style="color:#F0F3F4">Trajets</h6>
@@ -42,10 +43,11 @@
                     <h6 style="color:#F0F3F4">Télephone</h6>
                     <p id="phoneNumber" class="text-hero-desc">06.55.11.22.33</p>
 			    </div>
+                #}
 
                 {% if not app.user %}
                 <li class="form-inline my-2 my-lg-0">
-                    <a href="{{ path('security_login') }}"><button type="button" class="btn btn-secondary my-2 my-sm-0"><i class="fas fa-sign-in-alt"></i> Connexion</button></a>
+                    <a href="{{ path('customerArea_index') }}"><button type="button" class="btn btn-secondary my-2 my-sm-0">Espace client</button></a>
                 </li>
                 {% else %}
                     <div class="dropdown show">
@@ -54,9 +56,7 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="#">Mes reservations</a>
-                            <a class="dropdown-item" href="#">Mes informations</a>
-                            <a class="dropdown-item" href="#">Mes factures</a>
+                            <a class="dropdown-item" href="{{ path('customerArea_index') }}">Espace client</a>
                             <a class="dropdown-item" href="{{ path('security_logout') }}"><span style="color: red; ">Deconnexion</span></a>
                         </div>
                     </div>

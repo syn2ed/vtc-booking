@@ -2,42 +2,8 @@
 
 {% block title %}Réservation{% endblock %}
 
-{% block body %}
-
-<div id="reservationRow" class="row">
-
-    <div id="reservationFormDiv" class="card border-secondary mb-3">
-        <div class="card-header">Simulateur de trajet</div>
-        <div class="card-body">
-            {{ form_start(form) }}
-        
-            {{ form_row(form.departAdress) }}
-            {{ form_row(form.destinationAdress) }}
-        </div>
-    </div>
-    
-    <div id="estimationResult" class="col-sm-4 d-none">
-        <p class="lead">Votre trajet est estimé à:<h2 id="price"></h2>
-        </p>
-        <ul id="ulTimeDistance" class="list-group list-group-horizontal">
-            <li class="list-group-item"> 
-                <span class="far fa-clock"></span> <span id="time" class="duration"></span>
-            <li class="list-group-item">
-                <span class="fas fa-road"></span> <span id="distance" class="duration"></span>
-            </li>
-        </ul>
-
-        <div id="champsReservationSupp">
-            {{ form_row(form.tel) }}
-            {{ form_row(form.date) }}
-            {{ form_row(form.time) }}
-        </div>
-            {{ form_row(form.reserverButton)}}
-            {{ form_end(form) }} 
-    </div>
-
-    <div id="map" class="col-sm-4"></div>
-</div>
+{% block bodyOutFromContainer %}
+    {% include 'transverse/reservation.html.twig' %}
 {% endblock %}
 
 {% block javascripts %}

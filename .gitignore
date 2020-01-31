@@ -6,6 +6,7 @@
 /public/bundles/
 /var/
 /vendor/
+/config
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
@@ -17,8 +18,13 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
+###< IDE ###
 /.idea
+
+###< .env ###
 .env
 .env.test
-/config/bootstrap.php
+
+config/bootstrap.php
+
 
