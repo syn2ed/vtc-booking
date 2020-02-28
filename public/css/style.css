@@ -67,10 +67,16 @@
 
 /* Page prestations */
 #prestations_508div{
-    background-image: url("/img/508.jpg");
+    background-image: url("/img/index_slide/img2.jpg");
     background-size: cover;
-    -webkit-filter: brightness(50%);
+
+    /* parallax */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
     padding-bottom: 15%;
+    height: 100%;
 }
 
 .transparentCadre{
@@ -89,14 +95,13 @@
     width: 350px;
 }
 
-#reservationRow{
+#reservationRow {
+    background-repeat: no-repeat;
+    background-image: url(/img/mtp_row.jpg);
     display: inline-block;
-    /*
-    height: 500px;
-    background-image: url("https://locationsmeubleesmontpellier.files.wordpress.com/2016/09/architectural-style-in-montpellier_ultra-hd2.jpg");
+    width: 100%;
     background-size: cover;
-    display: flex;
-    justify-content: space-around;
+    background-position-y: bottom;
 }
 
 #map{
